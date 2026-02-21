@@ -1,0 +1,18 @@
+digraph "sum" {
+  label="sum";
+  labelloc=t;
+  node [shape=record, fontname="monospace", fontsize=9];
+  edge [fontname="monospace", fontsize=8];
+
+  bb0 [label="entry (BB0)\ls = 0\li = 0\l", style=filled, fillcolor=lightgreen];
+  bb1 [label="exit (BB1)", style=filled, fillcolor=lightyellow];
+  bb2 [label="loop.cond (BB2)---\lcond: (i \< n)\l"];
+  bb3 [label="loop.body (BB3)\ls = (s + arr[i])\li = (i + 1)\l"];
+  bb4 [label="loop.exit (BB4)\ls\l"];
+
+  bb0 -> bb2;
+  bb2 -> bb3 [label="true", color=green];
+  bb2 -> bb4 [label="false", color=red];
+  bb3 -> bb2;
+  bb4 -> bb1;
+}

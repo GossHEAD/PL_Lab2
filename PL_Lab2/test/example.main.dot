@@ -1,0 +1,18 @@
+digraph "main" {
+  label="main";
+  labelloc=t;
+  node [shape=record, fontname="monospace", fontsize=9];
+  edge [fontname="monospace", fontsize=8];
+
+  bb0 [label="entry (BB0)\ldata = init(10)\li = 0\l", style=filled, fillcolor=lightgreen];
+  bb1 [label="exit (BB1)", style=filled, fillcolor=lightyellow];
+  bb2 [label="loop.cond (BB2)---\lcond: (i \< 10)\l"];
+  bb3 [label="loop.body (BB3)\ldata[i] = (i * 2)\li = (i + 1)\l"];
+  bb4 [label="loop.exit (BB4)\ltotal = sum(data, 10)\lm = max(abs(-5), abs(3))\lidx = search(data, 10, 6)\lf = factorial(5)\lx = (total + m)\ly = (idx + f)\lprint(\"total=\", total)\lprint(\"max=\", m)\lprint(\"idx=\", idx)\lprint(\"fact=\", f)\l"];
+
+  bb0 -> bb2;
+  bb2 -> bb3 [label="true", color=green];
+  bb2 -> bb4 [label="false", color=red];
+  bb3 -> bb2;
+  bb4 -> bb1;
+}

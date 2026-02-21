@@ -1,0 +1,29 @@
+digraph CallGraph {
+  label="Call Graph";
+  labelloc=t;
+  node [shape=box, fontname="monospace", fontsize=10];
+
+  "abs";
+  "clamp";
+  "factorial";
+  "main";
+  "max";
+  "min";
+  "search";
+  "sum";
+  "waitUntilReady";
+  "init" [style=dashed, color=gray];
+  "print" [style=dashed, color=gray];
+  "read" [style=dashed, color=gray];
+
+  "clamp" -> "max";
+  "clamp" -> "min";
+  "main" -> "abs";
+  "main" -> "factorial";
+  "main" -> "init";
+  "main" -> "max";
+  "main" -> "print";
+  "main" -> "search";
+  "main" -> "sum";
+  "waitUntilReady" -> "read";
+}

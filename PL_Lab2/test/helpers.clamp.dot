@@ -1,0 +1,11 @@
+digraph "clamp" {
+  label="clamp";
+  labelloc=t;
+  node [shape=record, fontname="monospace", fontsize=9];
+  edge [fontname="monospace", fontsize=8];
+
+  bb0 [label="entry (BB0)\lresult = max(min(x, hi), lo)\l", style=filled, fillcolor=lightgreen];
+  bb1 [label="exit (BB1)", style=filled, fillcolor=lightyellow];
+
+  bb0 -> bb1;
+}

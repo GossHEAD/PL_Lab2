@@ -1,0 +1,12 @@
+// helpers.v4 — utility functions
+
+def min(a of int, b of int) of int
+    if a < b then
+        result = a;
+    else
+        result = b;
+end
+
+def clamp(x of int, lo of int, hi of int) of int
+    result = max(min(x, hi), lo);
+end

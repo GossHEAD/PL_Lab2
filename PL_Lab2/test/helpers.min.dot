@@ -1,0 +1,18 @@
+digraph "min" {
+  label="min";
+  labelloc=t;
+  node [shape=record, fontname="monospace", fontsize=9];
+  edge [fontname="monospace", fontsize=8];
+
+  bb0 [label="entry (BB0)---\lcond: (a \< b)\l", style=filled, fillcolor=lightgreen];
+  bb1 [label="exit (BB1)", style=filled, fillcolor=lightyellow];
+  bb2 [label="if.then (BB2)\lresult = a\l"];
+  bb3 [label="if.merge (BB3)"];
+  bb4 [label="if.else (BB4)\lresult = b\l"];
+
+  bb0 -> bb2 [label="true", color=green];
+  bb0 -> bb4 [label="false", color=red];
+  bb2 -> bb3;
+  bb3 -> bb1;
+  bb4 -> bb3;
+}

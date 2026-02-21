@@ -1,0 +1,18 @@
+digraph "factorial" {
+  label="factorial";
+  labelloc=t;
+  node [shape=record, fontname="monospace", fontsize=9];
+  edge [fontname="monospace", fontsize=8];
+
+  bb0 [label="entry (BB0)\lresult = 1\li = 2\l", style=filled, fillcolor=lightgreen];
+  bb1 [label="exit (BB1)", style=filled, fillcolor=lightyellow];
+  bb2 [label="repeat.body (BB2)\lresult = (result * i)\l"];
+  bb3 [label="repeat.cond (BB3)---\lcond: (i \<= n)\l"];
+  bb4 [label="repeat.exit (BB4)"];
+
+  bb0 -> bb2;
+  bb2 -> bb3;
+  bb3 -> bb2 [label="true", color=green];
+  bb3 -> bb4 [label="false", color=red];
+  bb4 -> bb1;
+}
